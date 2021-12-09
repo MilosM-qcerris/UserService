@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -26,11 +28,15 @@ public class UserController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
         userRepository.save(user);
-
         return "register_success";
     }
 
+    @GetMapping("/users")
+    public String listUsers(Model model) {
+        List<User> listUsers = userRepository.findAll();
+        model.addAttribute("listUsers", listUsers);
+        return "users";
+    }
 
 }

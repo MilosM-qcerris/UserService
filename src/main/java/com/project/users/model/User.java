@@ -3,13 +3,17 @@ package com.project.users.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "user_name", nullable = false, length = 20)
     private String userName;
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
+    @Column(nullable = false, length = 64)
     private String password;
 
     public User(){}
