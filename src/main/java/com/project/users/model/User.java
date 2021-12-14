@@ -1,6 +1,8 @@
 package com.project.users.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Users")
@@ -9,10 +11,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "user_name", nullable = false, length = 20)
+    @NotEmpty(message = "User Name is mandatory!")
+    @Column(name = "user_name",unique = true, nullable = false, length = 20)
     private String userName;
+    @Email(message = "E-mail is not valid.")
+    @NotEmpty(message = "Email is mandatory!")
     @Column(nullable = false, unique = true, length = 45)
     private String email;
+    @NotEmpty(message = "Password is mandatory!")
     @Column(nullable = false, length = 64)
     private String password;
 
