@@ -1,6 +1,4 @@
-package com.project.users.service;
-
-import com.project.users.config.PasswordConstraintValidator;
+package com.project.users.util;
 
 import javax.validation.Payload;
 import javax.validation.Constraint;

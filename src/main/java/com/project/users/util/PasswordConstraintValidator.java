@@ -1,11 +1,11 @@
-package com.project.users.config;
+package com.project.users.util;
 
 import org.passay.*;
 import org.passay.dictionary.WordListDictionary;
 import org.passay.dictionary.WordLists;
 import org.passay.dictionary.sort.ArraysSort;
 
-import com.project.users.service.ValidPassword;
+import com.project.users.util.ValidPassword;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
